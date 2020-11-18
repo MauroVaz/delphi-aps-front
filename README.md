@@ -49,6 +49,9 @@ Juntamente a isso altere a linha 10 para seu servidor e porta do Postgre SQL (e 
 
 <h5>Compilando e instalando projetos Java</h5>
 
+Entre na pasta do projeto, onde se localiza o arquivo pom.xml.
+Abra o CMD nesse local e execute o comando <b><i>"mvn clean package"</i></b>
+
 
 
 
