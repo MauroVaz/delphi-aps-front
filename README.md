@@ -47,6 +47,8 @@ No package com.unip.aps.controller e na classe "AsyncController.java é necessar
 Assim como no passo anterior no projeto "si8-aps-calculate" é necessario a alteração utilizando a IDE do eclipse da seguinte forma, altere o arquivo "database_pool.properties" em "/src/main/java" altere a linha 3 e 4 para seu Usuario e Senha do Postgres SQL.
 Juntamente a isso altere a linha 10 para seu servidor e porta do Postgre SQL (e banco caso tenha sido alterado o nome do database).
 
+<h5>Compilando e instalando projetos Java</h5>
+
 
 
 
