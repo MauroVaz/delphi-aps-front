@@ -43,7 +43,7 @@ Faça o download no GITHUB dos projetos:
 </ol>
 
 <h4>Alterando os codigos para execução local:</h4>
-No projeto <i>"delphi-aps-front"</i> é necessario a alteração da URL do servidor na aplicação, ou seja, será necessário alterar o valor da variavél na unit <i>Cadastro.pas</i> na <i>linha 169<i> do arquivo, alterando o IP do servidor da nuvem para o seu local, ou para a maquina que sera executado o codigo incluído no arquivo <i>"si8-aps"</i>;
+No projeto <i>"delphi-aps-front"</i> é necessario a alteração da URL do servidor na aplicação, ou seja, será necessário alterar o valor da variavél na unit <i>Cadastro.pas</i> na <i>linha 169</i> do arquivo, alterando o IP do servidor da nuvem para o seu local, ou para a maquina que sera executado o codigo incluído no arquivo <i>"si8-aps"</i>;
 Após a alteração, compile o codigo pela IDE do Delphi.
 </br>
 </br>
