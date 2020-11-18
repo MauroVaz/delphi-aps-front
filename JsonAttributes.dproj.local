@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2020/10/03 15:42:41.000.975,=F:\Users\Otávio\Documents\Embarcadero\Studio\Projects\FormUnit1.pas</Transaction>
+    <Transaction>2020/10/03 15:42:44.000.860,=F:\Users\Otávio\Documents\Embarcadero\Studio\Projects\WebModuleUnit1.pas</Transaction>
+    <Transaction>2020/10/03 16:05:39.000.161,=F:\Users\Otávio\Documents\Embarcadero\Studio\Projects\FormUnit1.pas</Transaction>
+    <Transaction>2020/10/03 16:05:39.000.365,=F:\Users\Otávio\Documents\Embarcadero\Studio\Projects\WebModuleUnit1.pas</Transaction>
+    <Transaction>2020/10/14 22:06:55.000.927,=F:\Users\Otávio\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/10/14 22:10:15.000.963,F:\Users\Otávio\Documents\Delphi\APS\untJasonAttributes.dfm=F:\Users\Otávio\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2020/10/14 22:10:15.000.963,F:\Users\Otávio\Documents\Delphi\APS\untJasonAttributes.pas=F:\Users\Otávio\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/10/14 22:10:23.000.398,F:\Users\Otávio\Documents\Delphi\APS\JsonAttributes.dproj=F:\Users\Otávio\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2020/10/14 22:10:36.000.232,=F:\Users\Otávio\Documents\Delphi\APS\Unit1.pas</Transaction>
+    <Transaction>2020/10/14 22:10:44.000.325,F:\Users\Otávio\Documents\Delphi\APS\untPessoa.pas=F:\Users\Otávio\Documents\Delphi\APS\Unit1.pas</Transaction>
+    <Transaction>2020/10/16 00:21:00.000.159,=F:\Users\Otávio\Documents\Delphi\APS\Unit2.pas</Transaction>
+    <Transaction>2020/10/16 00:21:32.000.430,F:\Users\Otávio\Documents\Delphi\APS\Unit2.dfm=F:\Users\Otávio\Documents\Delphi\APS\Cadastro.dfm</Transaction>
+    <Transaction>2020/10/16 00:21:32.000.430,F:\Users\Otávio\Documents\Delphi\APS\Unit2.pas=F:\Users\Otávio\Documents\Delphi\APS\Cadastro.pas</Transaction>
+  </Transactions>
+</BorlandProject>

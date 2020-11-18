@@ -1,0 +1,15 @@
+program JsonAttributes;
+
+uses
+  Vcl.Forms,
+  untJasonAttributes in 'untJasonAttributes.pas' {Form1},
+  untPessoa in 'untPessoa.pas';
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TForm1, Form1);
+  Application.Run;
+end.

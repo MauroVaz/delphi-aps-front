@@ -1,0 +1,266 @@
+unit Cadastro;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.Buttons,
+  IdBaseComponent, IdComponent, IdTCPConnection, IdTCPClient, IdHTTP, Data.DB,
+  Datasnap.DBClient, IdIOHandler, IdIOHandlerSocket, IdIOHandlerStack, IdSSL,
+  IdSSLOpenSSL, ACBrBase, ACBrSocket, ACBrCEP, Vcl.Imaging.jpeg, IdMultipartFormData,
+  REST.Json, System.JSON;
+
+type
+  TForm2 = class(TForm)
+    lbNome: TLabel;
+    lbCPF: TLabel;
+    lbTel: TLabel;
+    lbCel: TLabel;
+    Panel1: TPanel;
+    EditNome: TEdit;
+    EditCPF: TEdit;
+    EditCel: TEdit;
+    EditTel: TEdit;
+    GroupBox1: TGroupBox;
+    rgSituacao: TRadioGroup;
+    GroupBox3: TGroupBox;
+    Label4: TLabel;
+    Label5: TLabel;
+    editProduto1: TEdit;
+    editProduto2: TEdit;
+    editProduto3: TEdit;
+    editProduto4: TEdit;
+    editProduto5: TEdit;
+    cbProduto1: TComboBox;
+    cbProduto2: TComboBox;
+    cbProduto3: TComboBox;
+    cbProduto4: TComboBox;
+    cbProduto5: TComboBox;
+    Panel2: TPanel;
+    Image1: TImage;
+    EditProduto6: TEdit;
+    cbProduto6: TComboBox;
+    SpeedButton4: TSpeedButton;
+    Memo1: TMemo;
+    Label1: TLabel;
+    SpeedButton1: TSpeedButton;
+    IdHTTP1: TIdHTTP;
+    IdSSLIOHandlerSocketOpenSSL1: TIdSSLIOHandlerSocketOpenSSL;
+    procedure SpeedButton4Click(Sender: TObject);
+    procedure EditCPFKeyPress(Sender: TObject; var Key: Char);
+    procedure EditTelKeyPress(Sender: TObject; var Key: Char);
+    procedure EditCelKeyPress(Sender: TObject; var Key: Char);
+    procedure FormCreate(Sender: TObject);
+    procedure rgSituacaoClick(Sender: TObject);
+    procedure SpeedButton1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+    vArquivo : string;
+    procedure GeraJSON;
+  end;
+
+var
+  Form2: TForm2;
+
+implementation
+
+{$R *.dfm}
+
+uses untPessoa;
+
+procedure TForm2.EditCelKeyPress(Sender: TObject; var Key: Char);
+begin
+  if ((key in ['0'..'9'] = false) and (word(key) <> vk_back)) then
+    key := #0;
+end;
+
+procedure TForm2.EditCPFKeyPress(Sender: TObject; var Key: Char);
+begin
+  if ((key in ['0'..'9'] = false) and (word(key) <> vk_back)) then
+    key := #0;
+end;
+
+procedure TForm2.EditTelKeyPress(Sender: TObject; var Key: Char);
+begin
+  if ((key in ['0'..'9'] = false) and (word(key) <> vk_back)) then
+    key := #0;
+end;
+
+procedure TForm2.FormCreate(Sender: TObject);
+begin
+  rgSituacao.ItemIndex := 0;
+  cbProduto1.ItemIndex := 0;
+  cbProduto2.ItemIndex := 0;
+  cbProduto3.ItemIndex := 0;
+  cbProduto4.ItemIndex := 0;
+  cbProduto5.ItemIndex := 0;
+  cbProduto6.ItemIndex := 0;
+end;
+
+procedure TForm2.GeraJSON;
+var
+  Pessoa: TPessoa;
+  JSONPessoa: TJSONObject;
+begin
+
+  Pessoa := TPessoa.Create;
+
+  if rgSituacao.ItemIndex = 0 then
+    Pessoa.Ativa:= True
+  else
+    Pessoa.Ativa:= False;
+
+  Pessoa.Nome     := EditNome.Text;
+  Pessoa.CPF      := EditCPF.Text;
+  Pessoa.Tel      := EditTel.Text;
+  Pessoa.Cel      := EditCel.Text;
+
+  Pessoa.Papel    := StrToInt(cbProduto1.Text);
+  Pessoa.Plastico := StrToInt(cbProduto2.Text);
+  Pessoa.Vidro    := StrToInt(cbProduto3.Text);
+  Pessoa.Metal    := StrToInt(cbProduto4.Text);
+  Pessoa.Organico := StrToInt(cbProduto5.Text);
+  Pessoa.Outros   := StrToInt(cbProduto6.Text);
+
+  JSONPessoa := TJson.ObjectToJsonObject(Pessoa);
+
+  vArquivo := JSONPessoa.Format;
+  vArquivo := StringReplace(vArquivo, #$D#$A, '', [rfReplaceAll]);
+end;
+
+procedure TForm2.rgSituacaoClick(Sender: TObject);
+begin
+  if rgSituacao.ItemIndex = 1 then
+    ShowMessage('Atenção! A situação do cadastro atual está desativado!');
+end;
+
+procedure TForm2.SpeedButton1Click(Sender: TObject);
+var
+  URL, Retorno: String;
+  JsonStreamRetorno, JsonStreamEnvio: TStringStream;
+begin
+  URL := 'http://201.76.56.78:8080/aps-si8/api/v1/async/teste';
+
+  GeraJSON;
+
+  JsonStreamEnvio := TStringStream.Create(vArquivo);
+  JsonStreamRetorno := TStringStream.Create('');
+
+  // Init request:
+  try
+    idHttp1.Request.ContentType := 'application/json';
+    idhttp1.Request.Charset := 'UTF-8';
+    IdHttp1.IOHandler := IdSSLIOHandlerSocketOpenSSL1;
+
+    // Set username and password:
+    idHttp1.Request.Clear;
+    idHttp1.Request.BasicAuthentication := False;
+    idHttp1.Request.Username := 'usuario';
+    idHttp1.Request.password := 'senha';
+
+    idHttp1.Response.ContentType := 'application/json';
+    idHttp1.Response.CharSet := 'UTF-8';
+
+    try
+      idHttp1.Post(URL, JsonStreamEnvio, JsonStreamRetorno);
+      ShowMessage('Resultado :' + JsonStreamRetorno.DataString);
+    except
+      on E:EIdHTTPProtocolException do
+      ShowMessage(e.ErrorMessage);
+    end;
+
+//    idHttp1.Post(URL, JsonStreamEnvio, JsonStreamRetorno);
+//    ShowMessage('Resultado :' + JsonStreamRetorno);
+    //> Também tentei assim mas tb não funcionou
+    //>Retorno := idHttp.Post(URL, JsonStreamEnvio);
+   finally
+//     //> Nenhuma dessas formar funciou para pegar o retono
+//     memo2.Lines.LoadFromStream(JsonStreamRetorno);
+//     memo2.Lines.add('1=' + JsonStreamRetorno.DataString);
+//     memo2.Lines.add('3=' + Retorno);
+   end;
+end;
+
+procedure TForm2.SpeedButton4Click(Sender: TObject);
+const
+  URL = 'http://201.76.56.78:8080/aps-si8/api/v1/async/teste';//'http://demo7352050.mockable.io/teste';
+var
+  idHttp: TIdHTTP;
+  Json: string;
+  sResponse: string;
+  data: TIdMultiPartFormDataStream;
+  JsonToSend: TStringStream;
+  LHandler: TIdSSLIOHandlerSocketOpenSSL;
+  Arquivo: TStringList;
+  JSonValue : TJSonValue;
+
+begin
+  idHttp:= TIdHTTP.Create(nil);
+  data := TIdMultiPartFormDataStream.Create;
+  LHandler := TIdSSLIOHandlerSocketOpenSSL.Create(nil);
+
+  if (Length(EditNome.Text) < 5) then
+  begin
+    ShowMessage('- Verifiquei se o nome está completo!');
+    EditNome.SetFocus;
+    Exit;
+  end;
+
+  if (Length(EditCPF.Text) < 11) then
+  begin
+    ShowMessage('- Verifiquei se o CPF está correto!');
+    EditCPF.SetFocus;
+    Exit;
+  end;
+
+  if (Length(EditCel.Text) < 8) then
+  begin
+    ShowMessage('- Verifiquei se o TELEFONE está completo!');
+    EditCel.SetFocus;
+    Exit;
+  end;
+
+{  with LHandler do
+  begin
+    SSLOptions.Method := sslvSSLv2;
+    SSLOptions.Mode := sslmUnassigned;
+    SSLOptions.VerifyMode := [];
+    SSLOptions.VerifyDepth := 0;
+    host := '';
+  end;      }
+
+  try
+    GeraJSON;
+
+    Arquivo := TStringList.Create;
+    Arquivo.add(Memo1.Lines.Text);
+
+    try
+//      VArquivo := Memo1.Lines.Text;
+//      JsonValue := TJSonObject.ParseJSONValue(Arquivo);
+//      idHttp.IOHandler := IdSSLIOHandlerSocketOpenSSL1;
+      idHttp.Request.Accept := '*/*';
+      idHttp.Request.UserAgent := 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:25.0) Gecko/20100101 Firefox/25.0';
+      idHttp.Request.ContentType := 'application/json';
+      idHttp.Request.CharSet := 'utf-8';
+      idHttp.HandleRedirects := True;
+//      sResponse := UTF8Decode(idHttp.Post(URL, JsonValue.ToJSON));
+//      sResponse := UTF8Encode(idHttp.Post(URL, Arquivo));
+      sResponse := idHttp.Post(URL, Arquivo);
+      ShowMessage('Resultado: ' + sResponse);
+    except on E: Exception do
+      ShowMessage('Erro: ' + E.Message);
+    end;
+
+  finally
+    JsonValue.Free;
+    JsonToSend.Free;
+    LHandler.Free;
+    Arquivo.Free;
+  end;
+
+end;
+
+end.
