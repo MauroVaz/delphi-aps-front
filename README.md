@@ -6,7 +6,7 @@
 Faça o download no GITHUB do projeto <i>delphi-aps-front</i>.
 
 <h4>Abrindo o projeto: </h4>
-Para abrir o projeto, entre na pasta que o download foi realizado, depois entre em <i>/Win32/Debug/<i> e execute o arquivo <i>JsonAttributes.exe</i>;
+Para abrir o projeto, entre na pasta que o download foi realizado, depois entre em <i>/Win32/Debug/</i> e execute o arquivo <i>JsonAttributes.exe</i>;
 
 <h4>Utilizando: </h4>
 Preencha todas as informações necessárias para a execução do cadastro. Ao clicar no botão <i>"Finalizar cadastro"</i>, o valor total dos itens de venda sera exibido na tela.
