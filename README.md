@@ -22,7 +22,19 @@ Preencher todas as informações necessárias para finalizar o cadastro e ao cli
   <li><a href="https://maven.apache.org/download.cgi" target="_blank">MAVEN 3.6.3</a></li>
   <li><a href="https://www.postgresql.org/download/ target ="_blank">Postgres 9 </a></li>
 </ol>
+    
+<h4>Pre Requisitos Banco de dados: </h4>
 
+<ol>
+  <li>Crie o database com o comando <b><i>"CREATE DATABASE aps"</i></b></li>
+  <li>Crie a tabela VALORES com o comando <b><i>"CREATE TABLE VALORES (UUID VARCHAR(50), papel INT,plastico INT,vidro INT,metal INT,organico INT,outros INT, total INT);
+"</i></b></li>
+  <li>Crie a tabela PESSOA com o comando <b><i>"CREATE TABLE PESSOA (UUID VARCHAR(50), tagg boolean,cpf VARCHAR(50),cel VARCHAR(50),tel VARCHAR(50), nome VARCHAR(50));
+"</i></b></li>
+  <li><a href="https://tomcat.apache.org/download-90.cgi" target="_blank">TOMCAT 9.0.39</a></li>
+  <li><a href="https://maven.apache.org/download.cgi" target="_blank">MAVEN 3.6.3</a></li>
+  <li><a href="https://www.postgresql.org/download/ target ="_blank">Postgres 9 </a></li>
+</ol>
 
 
 <h4>Primeiro Passo de instalação: </h4>
@@ -61,7 +73,7 @@ Após a instalçao dos projetos java no servidor de aplicação tomcat e o start
 <h4>Utilizando: </h4>
 Preencher todas as informações necessárias para finalizar o cadastro e ao clicar no botão "Finalizar cadastro" o valor total dos itens de venda sera exibido na tela;
 
-<h1> Pronto você podera executar dessa forma a aps-8 de sistema distribuido de 2 forma utilização ou não backends em nuvem </h1>
+<h1> Pronto você podera executar dessa forma a aps-8 de sistema distribuido de 2 formas utilizando ou não backends em nuvem </h1>
 
 
 
