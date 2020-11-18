@@ -61,7 +61,7 @@ Após a instalçao dos projetos java no servidor de aplicação tomcat e o start
 <h4>Utilizando: </h4>
 Preencher todas as informações necessárias para finalizar o cadastro e ao clicar no botão "Finalizar cadastro" o valor total dos itens de venda sera exibido na tela;
 
-<h1> Pronto você podera executar dessa forma a aps-8 de sistema distribuido de outra forma sem a utilização dos backend em nuvem </h1>
+<h1> Pronto você podera executar dessa forma a aps-8 de sistema distribuido de 2 forma utilização ou não backends em nuvem </h1>
 
 
 
