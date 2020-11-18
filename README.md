@@ -17,6 +17,8 @@ Preencher todas as informações necessárias para finalizar o cadastro e ao cli
 Faça o download do GITHUB dos projetos:
 <ol>
 <li><a href="https://github.com/MauroVaz/delphi-aps-front" target="_blank">delphi-aps-front</a>.</li>
+<li><a href="https://github.com/MauroVaz/si8-aps" target="_blank">si8-aps</a>.</li>
+<li><a href="https://github.com/MauroVaz/si8-aps-calculate" target="_blank">si8-aps-calculate</a>.</li>
 </ol>
 
 
