@@ -31,9 +31,6 @@ Preencher todas as informações necessárias para finalizar o cadastro e ao cli
 "</i></b></li>
   <li>Crie a tabela PESSOA com o comando <b><i>"CREATE TABLE PESSOA (UUID VARCHAR(50), tagg boolean,cpf VARCHAR(50),cel VARCHAR(50),tel VARCHAR(50), nome VARCHAR(50));
 "</i></b></li>
-  <li><a href="https://tomcat.apache.org/download-90.cgi" target="_blank">TOMCAT 9.0.39</a></li>
-  <li><a href="https://maven.apache.org/download.cgi" target="_blank">MAVEN 3.6.3</a></li>
-  <li><a href="https://www.postgresql.org/download/ target ="_blank">Postgres 9 </a></li>
 </ol>
 
 
