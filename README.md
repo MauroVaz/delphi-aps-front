@@ -3,7 +3,7 @@
 <h3> Opção 1: Abrindo o Front local e usando o backend do servidor na Locaweb</b> 
 
 <h4>Primeiro Passo de instalação: </h4>
-Faça o download do GITHUB do projeto delphi-aps-front.
+Faça o download no GITHUB do projeto delphi-aps-front.
 
 <h4>Abrindo o projeto: </h4>
 Para abrir o projeto, entre na pasta que o Download foi realizado e entre em /Win32/Debug/ e execute o JsonAttributes.exe;
@@ -13,12 +13,30 @@ Preencher todas as informações necessárias para finalizar o cadastro e ao cli
 
 <h3> Opção 2: Instalando toda a arquitetura de sistema no seu computador</b> 
 
+<h4>Pre Requisitos: </h4>
+<ol>
+  <li><a href="https://www.embarcadero.com/br/products/delphi/starter/free-download" target="_blank"> Delphi 10.3</a></li>
+  <li><a href="https://www.eclipse.org/downloads/download.php?file=/oomph/epp/2020-09/R/eclipse-inst-jre-win64.exe" target="_blank"> Eclipse Versão que desejar </a></li>
+  <li><a href="https://www.oracle.com/br/java/technologies/javase/javase-jdk8-downloads.html" targe="_blank">JDK 1.8</a></li>
+  <li><a href="https://tomcat.apache.org/download-90.cgi" targe="_blank">TOMCAT 9.0.39</a></li>
+  <li><a href="https://maven.apache.org/download.cgi" targe="_blank">MAVEN 3.6.3</a></li>
+</ol>
+
+
+
 <h4>Primeiro Passo de instalação: </h4>
-Faça o download do GITHUB dos projetos:
+Faça o download no GITHUB dos projetos:
 <ol>
 <li><a href="https://github.com/MauroVaz/delphi-aps-front" target="_blank">delphi-aps-front</a>.</li>
 <li><a href="https://github.com/MauroVaz/si8-aps" target="_blank">si8-aps</a>.</li>
 <li><a href="https://github.com/MauroVaz/si8-aps-calculate" target="_blank">si8-aps-calculate</a>.</li>
 </ol>
+
+<h4>Alterando os codigos para execução local:</h4>
+No projeto "delphi-aps-front" é necessario a alteração da URL do servidor na aplicação, será necessário alterar o valor da variavél na unit Cadastro.pas na linha 169 do arquivo.
+Alterando do IP do servidor da nuvem para o seu local, ou para a maquina que sera executado o codigo "si8-aps";
+Apos a alteração compile o codigo pela IDE do Delphi;
+
+
 
 
